@@ -45,16 +45,6 @@ p {
     margin: 0 0 22px;
 }
 
-.animation {
-    display: block;
-    width: 80%;
-    max-width: 650px;
-    max-height: 32vh;
-    height: auto;
-    object-fit: contain;
-    margin: 0 auto 22px;
-}
-
 .relaxation-image {
     display: block;
     width: 100%;
@@ -99,11 +89,6 @@ p {
         margin-bottom: 18px;
     }
 
-    .animation {
-        width: 100%;
-        max-height: 28vh;
-    }
-
     .relaxation-image {
         width: 100%;
     }
@@ -117,7 +102,6 @@ p {
 
     <div class="text-container" id="text-container"></div>
 
-
     <div class="text-container" id="second-text-container"></div>
 
     <img
@@ -125,6 +109,7 @@ p {
         class="relaxation-image"
         id="relaxation-image"
         style="display: none;"
+        alt="Muscle relaxation diagram"
     >
 
 </div>
@@ -160,6 +145,7 @@ const steps = [
 let currentStep = 0;
 
 function nextStep() {
+
     if (currentStep >= steps.length) {
         window.location.href = "page18.html";
         return;
@@ -167,13 +153,7 @@ function nextStep() {
 
     const firstContainer = document.getElementById("text-container");
     const secondContainer = document.getElementById("second-text-container");
-    const animation = document.getElementById("animation");
     const relaxationImage = document.getElementById("relaxation-image");
-
-    // Show the GIF on the second click.
-    if (currentStep === 1) {
-        animation.style.display = "block";
-    }
 
     // Add new paragraphs without removing previous content.
     const targetContainer =

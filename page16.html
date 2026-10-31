@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Cross-Bridge Cycle</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 35px 40px 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .text-container {
+            width: 100%;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0 0 25px;
+        }
+
+        .animation {
+            display: block;
+            width: 90%;
+            max-width: 720px;
+            max-height: 48vh;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .continue-prompt {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b8b8b8;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .page-number {
+            position: fixed;
+            right: 24px;
+            bottom: 18px;
+            color: #b8b8b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 25px 22px 55px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .animation {
+                width: 100%;
+                max-height: 38vh;
+            }
+        }
+    </style>
+</head>
+
+<body onclick="nextStep()">
+
+    <main class="content">
+
+        <div class="text-container">
+            <p>
+                A new ATP molecule binds to the myosin head, causing it to
+                detach from actin. ATP is then hydrolyzed, returning the myosin
+                head to its high-energy position. As long as calcium remains
+                available and the binding sites on actin stay exposed, the
+                myosin head can attach again and repeat the cycle.
+            </p>
+        </div>
+
+        <img class="animation"
+             src="step8.gif"
+             alt="The cross-bridge cycle repeating as ATP binds to myosin">
+
+        <div class="text-container" id="second-text-container"></div>
+
+    </main>
+
+    <div class="continue-prompt" id="continue-prompt">
+        Click anywhere to continue
+    </div>
+
+    <div class="page-number">16/18</div>
+
+    <script>
+        let currentStep = 0;
+
+        function nextStep() {
+
+            if (currentStep === 0) {
+
+                const paragraph = document.createElement("p");
+
+                paragraph.textContent =
+                    "A myosin involves a bunch of thick filaments. Their cross-bridge cycles repeat in a coordinated way. As many myosin heads pull the thin filaments, sarcomeres shorten and generate tension. Across many sarcomeres and muscle fibres, these movements combine to produce the movement of the biceps during a curl.";
+
+                document.getElementById("second-text-container")
+                    .appendChild(paragraph);
+
+                currentStep++;
+
+                document.getElementById("continue-prompt").textContent =
+                    "Click anywhere to continue";
+
+            } else {
+
+                window.location.href = "page17.html";
+
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>From brain to muscles</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px 30px;
+            gap: 24px;
+        }
+
+        /* Text above the animation */
+        .story {
+            max-width: 760px;
+            width: 100%;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .story p {
+            margin: 0 0 16px;
+text-align: left;
+        }
+
+        .story p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Centered GIF */
+        .animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .animation img {
+            display: block;
+            width: 480px;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Bottom center instruction */
+        .continue {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b8b8b8;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Bottom right page number */
+        .page-number {
+            position: fixed;
+            right: 24px;
+            bottom: 18px;
+            color: #b8b8b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            user-select: none;
+        }
+
+        /* Mobile layout */
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 28px 20px;
+                gap: 18px;
+            }
+
+            .story {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .animation img {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .page-number {
+                right: 14px;
+                bottom: 14px;
+                font-size: 12px;
+            }
+
+            .continue {
+                padding-bottom: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body onclick="continuePage()">
+
+    <main class="main-content">
+
+        <section class="story">
+
+            <p>
+                When we want to perform a bicep curl, our brain sends an
+                electrical signal that travels down through the spinal cord.
+                Here, a motor neuron in the spinal cord's gray matter carries
+                the command toward the biceps brachii. Where the motor neuron
+                communicates with the muscle fibre is called the
+                neuromuscular junction (NMJ).
+            </p>
+
+         
+
+            <p>
+                Let's move into the axon to take a closer look.
+            </p>
+
+        </section>
+
+        <div class="animation">
+            <img src="step1.gif"
+                 alt="Animation showing the muscle signal pathway">
+        </div>
+
+    </main>
+
+    <footer class="continue">
+        click anywhere to continue
+    </footer>
+
+    <div class="page-number">
+        04/18
+    </div>
+
+    <script>
+        function continuePage() {
+            window.location.href = "page5.html";
+        }
+    </script>
+
+</body>
+</html>

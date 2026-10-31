@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Page 3 - Explore the Structures</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .introduction {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 34px 30px 12px;
+            text-align: center;
+        }
+
+        .introduction h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0 0 18px;
+            color: #292929;
+        }
+
+        .introduction p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0 auto 10px;
+            max-width: 850px;
+text-align: left;
+        }
+
+        .structures {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 22px 30px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            align-items: center;
+        }
+
+        .structure-card {
+            min-width: 0;
+            text-align: center;
+            padding: 18px 14px;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            background: #ffffff;
+            cursor: pointer;
+            transition: transform 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+
+        .structure-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .structure-card:focus-visible {
+            outline: 2px solid #888888;
+            outline-offset: 3px;
+        }
+
+        .structure-card img {
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            margin: 0 auto 12px;
+        }
+
+        .structure-name {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #999999;
+            letter-spacing: 0.3px;
+            margin: 0;
+        }
+
+        .closing {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 12px 28px 58px;
+            text-align: left;
+        }
+
+        .closing p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .page-number {
+            position: fixed;
+            right: 24px;
+            bottom: 18px;
+            color: #b8b8b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Bottom-center continue prompt */
+        .continue-prompt {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b8b8b8;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @media (max-width: 760px) {
+            .introduction {
+                padding: 28px 22px 10px;
+            }
+
+            .introduction h1 {
+                font-size: 24px;
+            }
+
+            .introduction p {
+                font-size: 15px;
+            }
+
+            .structures {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                gap: 14px;
+                padding: 18px 22px;
+            }
+
+            .structure-card {
+                padding: 18px;
+            }
+
+            .structure-card img {
+                height: 230px;
+            }
+
+            .closing {
+                padding: 12px 24px 58px;
+            }
+
+            .closing p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body onclick="continuePage()">
+
+    <header class="introduction">
+        <h1>Before We Begin: Explore the Overall Structures</h1>
+
+        <p>
+            Before we begin our investigation, let's take a closer look
+            at the structures involved in muscle contraction.
+        </p>
+
+        <p>
+            From the connection between a motor neuron and a muscle fibre
+            to the microscopic proteins inside the muscle, each structure
+            plays a part in producing movement.
+        </p>
+
+        <p>
+            Explore the three diagrams below (click it) and familiarize yourself
+            with their locations and structures. You will need this
+            knowledge to follow the signal and uncover why the arm
+            is not responding normally.
+        </p>
+    </header>
+
+    <main class="structures">
+
+        <section
+            class="structure-card"
+            role="link"
+            tabindex="0"
+            aria-label="View the Neuromuscular Junction diagram"
+            onclick="event.stopPropagation(); window.location.href='overall1.html'"
+            onkeydown="openOnEnter(event, 'overall1.html')"
+        >
+            <img src="overall1.png" alt="Neuromuscular junction">
+
+            <p class="structure-name">
+                Neuromuscular Junction (NMJ)
+            </p>
+        </section>
+
+        <section
+            class="structure-card"
+            role="link"
+            tabindex="0"
+            aria-label="View the Sarcomere diagram"
+            onclick="event.stopPropagation(); window.location.href='overall2.html'"
+            onkeydown="openOnEnter(event, 'overall2.html')"
+        >
+            <img src="overall2.png" alt="Sarcomere structure">
+
+            <p class="structure-name">
+                Sarcomere
+            </p>
+        </section>
+
+        <section
+            class="structure-card"
+            role="link"
+            tabindex="0"
+            aria-label="View the Actin and Myosin diagram"
+            onclick="event.stopPropagation(); window.location.href='overall3.html'"
+            onkeydown="openOnEnter(event, 'overall3.html')"
+        >
+            <img src="overall3.png" alt="Actin and myosin filaments">
+
+            <p class="structure-name">
+                Actin and Myosin
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="closing">
+        <p>
+            Now that you know the key structures, it's time to investigate
+            how they work together. Let's trace the signal from the spinal
+            cord to the muscle fibre first.
+        </p>
+    </footer>
+
+    <!-- Bottom-center gray text -->
+    <div class="continue-prompt">
+        click anywhere to continue
+    </div>
+
+    <!-- Bottom-right page number -->
+    <div class="page-number">
+        03/18
+    </div>
+
+    <script>
+        function continuePage() {
+            window.location.href = "page4.html";
+        }
+
+        function openOnEnter(event, page) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                event.stopPropagation();
+                window.location.href = page;
+            }
+        }
+    </script>
+
+</body>
+</html>

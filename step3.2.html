@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abnormal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+            font-size: 28px;
+            font-weight: normal;
+        }
+
+        .content {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 28px;
+        }
+
+        .animation {
+            display: block;
+            width: 90%;
+            max-width: 720px;
+            max-height: 65vh;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            margin: 12px 0 32px;
+            padding: 10px 22px;
+            border: 1px solid #dddddd;
+            border-radius: 6px;
+            background: #ffffff;
+            color: #444444;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Abnormal</h1>
+
+    <main class="content">
+        <img class="animation"
+             src="step3.2.gif"
+             alt="Abnormal neuromuscular junction">
+
+        <button class="back-button" onclick="history.back()">
+            Back to Overview
+        </button>
+    </main>
+
+</body>
+</html>

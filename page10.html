@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muscle Contraction Game</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .animation {
+            display: block;
+            width: 90%;
+            max-width: 720px;
+            max-height: 45vh;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 24px;
+        }
+
+        .text-container {
+            width: 100%;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin: 0 0 20px;
+        }
+
+        .continue-prompt {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b8b8b8;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .page-number {
+            position: fixed;
+            right: 24px;
+            bottom: 18px;
+            color: #b8b8b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body onclick="window.location.href='page11.html'">
+
+    <main class="content">
+
+        <img class="animation"
+             src="step3.3.gif"
+             alt="Acetylcholine recycling at the neuromuscular junction">
+
+        <div class="text-container">
+            <p>
+                Another important point to know is that ACh can also be recycled!
+                An enzyme called Acetylcholinesterase will break down the ACh
+                into acetic acid and choline, the choline will move back into
+                the axon terminal, ready to make more ACh.
+            </p>
+
+            <p>
+                The receptor problem has been corrected in our simulation.
+                Let's see whether the muscle action potential can now travel normally.
+            </p>
+        </div>
+
+    </main>
+
+    <div class="continue-prompt">
+        Click anywhere to continue
+    </div>
+
+    <div class="page-number">10/18</div>
+
+</body>
+</html>

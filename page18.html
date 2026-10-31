@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Case of the Unmoving Arm</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 35px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+    color: #333333;
+    cursor: default;
+    overflow: hidden;
+}
+
+.content {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.case-closed {
+    font-size: 48px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #D62828;
+    margin-top: 25px;
+}
+
+/* Confetti animation */
+#confetti-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.confetti {
+    position: absolute;
+    top: -15px;
+    width: 9px;
+    height: 13px;
+    opacity: 0.9;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(900deg);
+    }
+}
+
+/* Firework animation */
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+.page-number {
+    position: fixed;
+    right: 24px;
+    bottom: 18px;
+    color: #b8b8b8;
+    font-size: 13px;
+    letter-spacing: 1px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 3;
+}
+
+@media (max-width: 600px) {
+    p {
+        font-size: 16px;
+    }
+
+    .case-closed {
+        font-size: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .confetti,
+    .firework {
+        animation: none;
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="confetti-container"></div>
+
+<div class="content">
+    <p>
+        Our investigation is complete. We identified a problem involving
+        acetylcholine receptors, corrected the problem in our simulation,
+        and checked the remaining steps of contraction and relaxation.
+    </p>
+
+    <p class="case-closed">
+        Case closed: Congratulations! The muscle contraction pathway is
+        functioning normally again!
+    </p>
+</div>
+
+<div class="page-number">18/18</div>
+
+<script>
+const container = document.getElementById("confetti-container");
+
+const colors = [
+    "#E63946",
+    "#457B9D",
+    "#F4A261",
+    "#2A9D8F",
+    "#9B5DE5",
+    "#FFD166",
+    "#F15BB5"
+];
+
+// Create falling confetti
+function createConfetti() {
+    const piece = document.createElement("div");
+
+    piece.className = "confetti";
+
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
+
+    piece.style.animationDuration =
+        (3 + Math.random() * 4) + "s";
+
+    piece.style.width = (6 + Math.random() * 7) + "px";
+    piece.style.height = (8 + Math.random() * 9) + "px";
+
+    container.appendChild(piece);
+
+    setTimeout(() => {
+        piece.remove();
+    }, 7500);
+}
+
+// Create fireworks
+function createFirework(x, y) {
+    const particleCount = 28;
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement("div");
+
+        particle.className = "firework";
+
+        const angle = (Math.PI * 2 * i) / particleCount;
+        const distance = 45 + Math.random() * 65;
+
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance;
+
+        particle.style.left = x + "px";
+        particle.style.top = y + "px";
+
+        particle.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        particle.style.setProperty("--x", dx + "px");
+        particle.style.setProperty("--y", dy + "px");
+
+        container.appendChild(particle);
+
+        setTimeout(() => {
+            particle.remove();
+        }, 1300);
+    }
+}
+
+// Continuous confetti
+setInterval(createConfetti, 100);
+
+// Fireworks from different positions
+function launchFireworks() {
+    const x = 50 + Math.random() * (window.innerWidth - 100);
+    const y = 70 + Math.random() * (window.innerHeight * 0.55);
+
+    createFirework(x, y);
+}
+
+setInterval(launchFireworks, 1100);
+
+// Initial celebration
+for (let i = 0; i < 35; i++) {
+    setTimeout(createConfetti, i * 40);
+}
+
+setTimeout(launchFireworks, 300);
+setTimeout(launchFireworks, 700);
+
+</script>
+
+</body>
+</html>

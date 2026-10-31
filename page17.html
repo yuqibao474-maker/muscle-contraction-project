@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Case of the Unmoving Arm</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 35px 40px 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+    color: #333333;
+    cursor: pointer;
+}
+
+.content {
+    width: 100%;
+    max-width: 850px;
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-container {
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 0 0 22px;
+}
+
+.animation {
+    display: block;
+    width: 80%;
+    max-width: 650px;
+    max-height: 32vh;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 22px;
+}
+
+.relaxation-image {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    height: auto;
+    object-fit: contain;
+    margin: 10px auto 25px;
+}
+
+.continue-prompt {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #b8b8b8;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
+}
+
+.page-number {
+    position: fixed;
+    right: 24px;
+    bottom: 18px;
+    color: #b8b8b8;
+    font-size: 13px;
+    letter-spacing: 1px;
+    user-select: none;
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 25px 22px 60px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+    }
+
+    .animation {
+        width: 100%;
+        max-height: 28vh;
+    }
+
+    .relaxation-image {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body onclick="nextStep()">
+
+<div class="content">
+
+    <div class="text-container" id="text-container"></div>
+
+    <img
+        src="step9.gif"
+        class="animation"
+        id="animation"
+        style="display: none;"
+    >
+
+    <div class="text-container" id="second-text-container"></div>
+
+    <img
+        src="relaxation.jpg"
+        class="relaxation-image"
+        id="relaxation-image"
+        style="display: none;"
+    >
+
+</div>
+
+<div class="continue-prompt" id="continue-prompt">
+    Click anywhere to continue
+</div>
+
+<div class="page-number">17/18</div>
+
+<script>
+const steps = [
+    [
+        "The contraction mechanism appears to be functioning normally after our simulated correction. But our investigation is not finished yet. We still need to check whether the muscle can relax properly."
+    ],
+    [
+        "When motor neuron stimulation stops, the release of ACh decreases and eventually stops. The remaining ACh is broken down by acetylcholinesterase, and the muscle fibre stops generating new action potentials."
+    ],
+    [
+        "Remember the calcium ions released from the sarcoplasmic reticulum? Now it's time for them to return.",
+        "Calcium ions fall off from the troponin. Calcium pumps use energy from ATP to transport calcium ions from the sarcoplasm back into the sarcoplasmic reticulum."
+    ],
+    [
+        "As calcium ions detach from troponin, troponin returns toward its original shape. Tropomyosin moves back over the myosin-binding sites on actin, blocking them again.",
+        "Myosin can no longer form new cross-bridges at these blocked sites, so the cross-bridge cycle comes to an end."
+    ],
+    [
+        "With no new cross-bridges forming, the sliding of actin filaments driven by the cross-bridge cycle stops.",
+        "The muscle's tension decreases, and the muscle fiber relaxes. When the muscle is part of a biceps curl, this allows the biceps to stop actively contracting and return toward its relaxed state."
+    ]
+];
+
+let currentStep = 0;
+
+function nextStep() {
+    if (currentStep >= steps.length) {
+        window.location.href = "page18.html";
+        return;
+    }
+
+    const firstContainer = document.getElementById("text-container");
+    const secondContainer = document.getElementById("second-text-container");
+    const animation = document.getElementById("animation");
+    const relaxationImage = document.getElementById("relaxation-image");
+
+    // Show the GIF on the second click.
+    if (currentStep === 1) {
+        animation.style.display = "block";
+    }
+
+    // Add new paragraphs without removing previous content.
+    const targetContainer =
+        currentStep <= 2 ? firstContainer : secondContainer;
+
+    steps[currentStep].forEach(text => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = text;
+        targetContainer.appendChild(paragraph);
+    });
+
+    currentStep++;
+
+    // Show the relaxation image after the final paragraph appears.
+    if (currentStep === steps.length) {
+        relaxationImage.style.display = "block";
+
+        document.getElementById("continue-prompt").textContent =
+            "Click anywhere to finish";
+    }
+}
+
+// Automatically display the first paragraph when the page loads.
+nextStep();
+
+</script>
+
+</body>
+</html>

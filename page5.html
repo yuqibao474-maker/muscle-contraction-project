@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Page 5 - Acetylcholine Release</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 35px 24px 65px;
+            cursor: pointer;
+        }
+
+        /* Centered text */
+        .content {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            gap: 22px;
+        }
+
+        .explanation {
+            font-size: 17px;
+            line-height: 1.8;
+            margin: 0;
+            max-width: 850px;
+        }
+
+        /* Centered animation */
+        .animation {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .animation img {
+            display: block;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            max-height: 52vh;
+            object-fit: contain;
+        }
+
+        /* Bottom-center continue prompt */
+        .continue-prompt {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b8b8b8;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Bottom-right page number */
+        .page-number {
+            position: fixed;
+            right: 24px;
+            bottom: 18px;
+            color: #b8b8b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: 25px 20px 65px;
+            }
+
+            .content {
+                gap: 18px;
+            }
+
+            .explanation {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .animation img {
+                max-height: 45vh;
+            }
+        }
+    </style>
+</head>
+
+<body onclick="continuePage()">
+
+    <main class="content">
+
+        <p class="explanation">
+            Now we are inside an axon terminal. First, the action potential
+            arrives (yellow glowing). Voltage-regulated calcium channels
+            embedded in the axon terminal membrane open in response to
+            the change in action potential. Calcium ions rush into
+            the terminal, triggering synaptic vesicles containing
+            acetylcholine (ACh), a neurotransmitter, to move toward and
+            fuse with the cell membrane. ACh is then released into the
+            synaptic cleft through a process called exocytosis.
+        </p>
+
+        <div class="animation">
+            <img
+                src="step2.gif"
+                alt="An action potential triggers calcium entry and acetylcholine release from the axon terminal"
+            >
+        </div>
+
+    </main>
+
+    <!-- Bottom-center gray text -->
+    <div class="continue-prompt">
+        click anywhere to continue
+    </div>
+
+    <!-- Bottom-right page number -->
+    <div class="page-number">
+        05/18
+    </div>
+
+    <script>
+        function continuePage() {
+            window.location.href = "page6.html";
+        }
+    </script>
+
+</body>
+</html>

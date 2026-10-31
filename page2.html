@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Muscle Contraction Game</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            text-align: left;
+            position: relative;
+        }
+
+        /* Background image layer */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url("background2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.8;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 0 20px;
+            text-align: left;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 14px 28px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .page-number {
+            position: fixed;
+            right: 24px;
+            bottom: 18px;
+            color: #b8b8b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>What's Happening Inside Your Muscle?</h1>
+
+    <p>
+        Every time you move your arm, a complex process takes place inside your body. Your nervous system sends a signal to your muscle, triggering a series of events that allow the muscle fibers to contract.
+    </p>
+
+    <p>
+        Today, a patient arrives with a problem: he cannot lift his arm properly
+    </p>
+
+    <p>
+        In this investigation, you will explore the process of muscle contraction, from the arrival of a nerve signal to the interaction between actin and myosin.
+    </p>
+
+    <p>
+        And your mission is to identify the source of problem through examining each important sections that are involved in the muscle contractions and check if the muscles can contract and relax normally after your correction.
+    </p>
+
+    <button onclick="window.location.href='page3.html'">
+        Next
+    </button>
+
+    <div class="page-number">02/18</div>
+
+</body>
+</html>

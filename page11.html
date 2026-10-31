@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Muscle Action Potential</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 35px 40px 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .text-container {
+            width: 100%;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0 0 22px;
+        }
+
+        .animation {
+            display: block;
+            width: 90%;
+            max-width: 720px;
+            max-height: 38vh;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto 22px;
+        }
+
+        .continue-prompt {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b8b8b8;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .page-number {
+            position: fixed;
+            right: 24px;
+            bottom: 18px;
+            color: #b8b8b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 25px 22px 55px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .animation {
+                width: 100%;
+                max-height: 32vh;
+            }
+        }
+    </style>
+</head>
+
+<body onclick="window.location.href='page12.html'">
+
+    <main class="content">
+
+        <div class="text-container">
+            <p>
+                Moving inside a muscle fiber, when those sodium ions move into
+                the sarcoplasm (cell cytoplasm), local depolarization occurs
+                and creates a new action potential. This action potential will
+                propagate along the sarcolemma in all directions and travel
+                deep into the extended sarcolemma through structures called
+                T-tubules.
+            </p>
+        </div>
+
+        <img class="animation"
+             src="step4_5.gif"
+             alt="Action potential traveling along the sarcolemma and T-tubules">
+
+        <div class="text-container">
+            <p>
+                The action potential travels down the T-tubules and activates
+                voltage-regulated proteins that trigger calcium release from
+                the sarcoplasmic reticulum (terminal cisternae). Calcium ions
+                pour into the sarcoplasm, the cytoplasm of the muscle fibre.
+            </p>
+
+            <p>
+                Now let's zoom in on the proteins where contraction actually
+                takes place.
+            </p>
+        </div>
+
+    </main>
+
+    <div class="continue-prompt">
+        Click anywhere to continue
+    </div>
+
+    <div class="page-number">11/18</div>
+
+</body>
+</html>

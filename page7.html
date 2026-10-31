@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Case of the Unmoving Arm</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .page {
+            width: 85%;
+            max-width: 850px;
+            padding: 40px 0 60px;
+        }
+
+        .fact {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .animation img {
+            display: block;
+            width: 560px;
+            max-width: 100%;
+            max-height: 430px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .continue {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #b8b8b8;
+            font-size: 12px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .page-number {
+            position: fixed;
+            right: 24px;
+            bottom: 18px;
+            color: #b8b8b8;
+            font-size: 13px;
+            letter-spacing: 1px;
+            user-select: none;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body onclick="continuePage()">
+
+    <main class="page">
+        <div class="fact">
+            ACh has crossed the synaptic cleft and reached the motor end plate, a specialized region of the muscle fibre's sarcolemma. Normally, ACh binds to receptors on the chemical-regulated ion channels. When these channels open, sodium ions move into the muscle fibre (sodium influx), while potassium ions can move out (potassium efflux).
+        </div>
+
+        <div class="animation">
+            <img src="step3.gif"
+                 alt="Normal acetylcholine binding to receptors at the motor end plate">
+        </div>
+    </main>
+
+    <div class="continue">Click anywhere to continue</div>
+
+    <div class="page-number">07/18</div>
+
+    <script>
+        function continuePage() {
+            window.location.href = "page8.html";
+        }
+    </script>
+
+</body>
+</html>

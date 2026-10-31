@@ -96,7 +96,7 @@ p {
 </style>
 </head>
 
-<body onclick="nextStep()">
+<body>
 
 <div class="content">
 
@@ -155,10 +155,11 @@ function nextStep() {
     const secondContainer = document.getElementById("second-text-container");
     const relaxationImage = document.getElementById("relaxation-image");
 
-    // Add new paragraphs without removing previous content.
+    // Keep the original paragraph order and layout.
     const targetContainer =
         currentStep <= 2 ? firstContainer : secondContainer;
 
+    // Display the paragraphs for the current step.
     steps[currentStep].forEach(text => {
         const paragraph = document.createElement("p");
         paragraph.textContent = text;
@@ -167,8 +168,9 @@ function nextStep() {
 
     currentStep++;
 
-    // Show the relaxation image after the final paragraph appears.
+    // Display the relaxation image after the final paragraph.
     if (currentStep === steps.length) {
+
         relaxationImage.style.display = "block";
 
         document.getElementById("continue-prompt").textContent =
@@ -176,8 +178,15 @@ function nextStep() {
     }
 }
 
-// Automatically display the first paragraph when the page loads.
-nextStep();
+// Set up the click event after the page loads.
+document.addEventListener("DOMContentLoaded", function() {
+
+    document.body.addEventListener("click", nextStep);
+
+    // Automatically display the first paragraph.
+    nextStep();
+
+});
 
 </script>
 
